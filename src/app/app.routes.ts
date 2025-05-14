@@ -6,7 +6,6 @@
 import { MeetingManagementComponent } from './meeting/pages/meeting-management/meeting-management.component'; // Cambia TimeLine a Timeline
 import { RecordingManagementComponent } from './meeting/components/recording-management/recording-management.component'; // Cambia TimeLine a Timeline
 import { MemberManagementComponent } from "./members/pages/member-management/member-management.component";
-import { IssuesListComponent } from './issue/pages/issues-list/issues-list.component';
 import { SignInComponent } from './iam/pages/sign-in/sign-in.component';
 import { SignUpComponent } from './iam/pages/sign-up/sign-up.component';
 import {authenticationGuard} from './iam/services/authentication.guard';
