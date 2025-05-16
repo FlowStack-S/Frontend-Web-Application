@@ -1,7 +1,7 @@
 // src/app/statistics/components/member-list/member-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { StatisticsService } from '../../services/statistics.service';
-import { Member } from '../../model/member.entity';
+import { Member } from '../../model/member-entity/member.entity';
 
 @Component({
   selector: 'app-member-list',

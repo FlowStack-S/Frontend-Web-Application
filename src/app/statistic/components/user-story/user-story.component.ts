@@ -5,6 +5,7 @@ import { Statistics } from '../../model/statistic-entity/statistic.entity';
 @Component({
   selector: 'app-user-story',
   templateUrl: './user-story.component.html',
+  standalone: true,
   styleUrls: ['./user-story.component.css']
 })
 export class UserStoryComponent {
