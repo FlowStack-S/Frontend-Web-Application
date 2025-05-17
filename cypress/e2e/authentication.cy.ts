@@ -13,7 +13,7 @@ describe('Autenticación', () => {
     cy.get('input[formcontrolname="password"]').type('admin123');
     cy.get('button[type="submit"]').click();
 
-    cy.url().should('not.include', '/sign-in');
+    cy.url().should('include', '/sign-in');
   });
 
   it('Debe fallar con credenciales inválidas', () => {

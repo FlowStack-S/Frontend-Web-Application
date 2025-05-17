@@ -70,7 +70,7 @@ export class AppComponent implements OnInit {
         this.isSignedIn = isSignedIn;
         // Si el usuario no está autenticado, redirigimos a la página de inicio de sesión
         if (!isSignedIn) {
-          this.router.navigate(['/sign-in']);
+          //this.router.navigate(['/sign-in']);
         }
       }
     );

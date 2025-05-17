@@ -9,6 +9,7 @@ import { MatInput } from "@angular/material/input";
 import { MatButton } from "@angular/material/button";
 import { NgIf } from "@angular/common";
 import { AuthenticationSectionComponent } from "../../../iam/components/authentication-section/authentication-section.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sign-in',
@@ -34,7 +35,7 @@ export class SignInComponent extends BaseFormComponent implements OnInit {
   form!: FormGroup;
   submitted = false;
 
-  constructor(private builder: FormBuilder, private authenticationService: AuthenticationService) {
+  constructor(private builder: FormBuilder, private authenticationService: AuthenticationService, private router: Router) {
     super();
   }
 

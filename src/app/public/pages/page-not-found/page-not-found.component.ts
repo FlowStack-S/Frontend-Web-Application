@@ -17,6 +17,6 @@ export class PageNotFoundComponent {
   }
 
   goHome() {
-    this.router.navigate(['/']); // Redirige a la página principal
+    this.router.navigate(['/sign-in']); // Redirige a la página principal
   }
 }

@@ -8,6 +8,6 @@ describe('Validación de rutas', () => {
 
   it('Ruta no válida muestra página 404', () => {
     cy.visit('/ruta-inexistente', { failOnStatusCode: false });
-    cy.contains('Page Not Found').should('exist');
+    cy.contains('Página No Encontrada').should('exist');
   });
 });

@@ -21,7 +21,7 @@ import {AuthenticationSectionComponent} from './iam/components/authentication-se
      // Asegúrate de que esta ruta esté definida
     { path: 'sign-in', component: SignInComponent },
     { path: 'sign-up', component: SignUpComponent },
-    { path: '**', component: BacklogPageComponent}
+    { path: '**', component: PageNotFoundComponent}
   ];
 
 

@@ -20,7 +20,11 @@ export class AuthenticationService {
   private signedInUserId: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   private signedInUsername: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) {
+    const token = localStorage.getItem('token');
+    const isLoggedIn = !!token;
+    this.signedIn = new BehaviorSubject<boolean>(isLoggedIn);
+  }
 
   get isSignedIn() {
     return this.signedIn.asObservable();
@@ -68,7 +72,7 @@ export class AuthenticationService {
           this.signedInUsername.next(response.username);
           localStorage.setItem('token', response.token);
           console.log(`Signed in as ${response.username} with token ${response.token}`);
-          this.router.navigate(['/']).catch((error) => console.error('Navigation error:', error));
+          this.router.navigate(['/statistics']).catch((error) => console.error('Navigation error:', error));
         },
         error: (error) => {
           this.signedIn.next(false);

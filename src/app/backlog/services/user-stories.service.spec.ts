@@ -4,7 +4,7 @@ import { TestBed } from '@angular/core/testing';
 import { UserStoriesService } from './user-stories.service';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { inject } from '@angular/core';
-import { HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('UserStoriesService', () => {
   let service: UserStoriesService;
@@ -12,6 +12,7 @@ describe('UserStoriesService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       providers: [
         UserStoriesService,
         provideHttpClientTesting(),
