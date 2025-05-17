@@ -2,7 +2,9 @@
 
 import { TestBed } from '@angular/core/testing';
 import { UserStoriesService } from './user-stories.service';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { inject } from '@angular/core';
+import { HttpTestingController } from '@angular/common/http/testing';
 
 describe('UserStoriesService', () => {
   let service: UserStoriesService;
@@ -10,10 +12,13 @@ describe('UserStoriesService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [UserStoriesService],
+      providers: [
+        UserStoriesService,
+        provideHttpClientTesting(),
+      ],
     });
 
+    // Inyección manual (alternativa moderna)
     service = TestBed.inject(UserStoriesService);
     httpMock = TestBed.inject(HttpTestingController);
   });

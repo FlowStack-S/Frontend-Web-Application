@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable, switchMap} from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Statistics } from '../model/statistic-entity/statistic.entity';
@@ -70,4 +70,40 @@ loadUserStories(): Observable<any[]> {
       map(members => members.map(member => member.role))
     );
   }
+
+  updateEffortEstimation(id: number, newEffort: number): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': token ? `Bearer ${token}` : ''
+    });
+
+    return this.http.get<any>(`${this.apiUrl}/user-stories/${id}`, { headers }).pipe(
+      map(userStory => {
+        userStory.effort = newEffort;
+        return userStory;
+      }),
+      // Encadenamos la petición PUT con el body actualizado
+      switchMap(updatedStory => this.http.put<any>(`${this.apiUrl}/user-stories/${id}`, updatedStory, { headers }))
+    );
+  }
+
+  updateDateRange(sprintId: number, startDate: Date, endDate: Date): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': token ? `Bearer ${token}` : ''
+    });
+
+    return this.http.get<any>(`${this.apiUrl}/sprints/${sprintId}`, { headers }).pipe(
+      map(sprint => {
+        sprint.startDate = startDate.toISOString();
+        sprint.endDate = endDate.toISOString();
+        return sprint;
+      }),
+      switchMap(updatedSprint => this.http.put<any>(`${this.apiUrl}/sprints/${sprintId}`, updatedSprint, { headers }))
+    );
+  }
+
+
 }

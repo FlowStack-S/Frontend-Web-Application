@@ -27,7 +27,7 @@ export class UserStoryComponent {
     const start = new Date(startDate);
     const end = new Date(endDate);
     if (!isNaN(start.getTime()) && !isNaN(end.getTime())) {
-      this.statisticsService.updateDateRange(this.story.id, start, end).subscribe(response => {
+      this.statisticsService.updateDateRange(this.story.sprint, start, end).subscribe(response => {
         console.log('Dates updated', response);
       });
     }
