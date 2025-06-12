@@ -8,7 +8,7 @@ import { BaseService } from '../../meeting/services/base.service'; // Si necesit
   providedIn: 'root'
 })
 export class MemberService {
-  private apiUrl = 'http://localhost:8090/api/v1/members';
+  private apiUrl = 'https://managewise-backend-hfadgugthcc2erdd.centralus-01.azurewebsites.net/api/v1/members';
 
   constructor(private http: HttpClient) { }
 
