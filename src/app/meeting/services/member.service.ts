@@ -14,7 +14,7 @@ export class MemberService {
 
   // Obtener todos los miembros
   getAll(): Observable<Member[]> {
-    return this.http.get<Member[]>('http://localhost:8090/api/v1/members');
+    return this.http.get<Member[]>('https://managewise-backend-hfadgugthcc2erdd.centralus-01.azurewebsites.net/api/v1/members');
   }
 
   // Actualizar miembros en bloque (recuerda que My JSON Server no soporta esta funcionalidad)
